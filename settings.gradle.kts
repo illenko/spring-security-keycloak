@@ -1,1 +1,1 @@
-rootProject.name = "gateway-secured"
+rootProject.name = "resource"

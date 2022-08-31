@@ -1,4 +1,4 @@
-package com.illenko.gateway
+package com.illenko.resource
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

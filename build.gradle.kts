@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kotlinLoggingVersion: String by project
 val smartExceptionVersion: String by project
-val keyCloakVersion: String by project
 
 plugins {
     id("org.springframework.boot") version "2.7.2"
@@ -11,7 +10,7 @@ plugins {
     kotlin("plugin.spring") version "1.6.21"
 }
 
-group = "com.illenko.gateway"
+group = "com.illenko.resource"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -29,13 +28,8 @@ configurations {
     }
 }
 
-extra["springCloudVersion"] = "2021.0.3"
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.cloud:spring-cloud-starter-gateway")
-    implementation("org.keycloak:keycloak-spring-boot-starter:$keyCloakVersion")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -43,15 +37,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
     implementation("com.arthenica:smart-exception-logback:$smartExceptionVersion")
-    
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
-}
-
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
-    }
 }
 
 tasks.withType<KotlinCompile> {

@@ -1,7 +1,8 @@
-package com.illenko.gateway
+package com.illenko.resource
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+
 
 @SpringBootApplication
 class GatewayApplication
